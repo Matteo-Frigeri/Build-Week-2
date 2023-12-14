@@ -5,12 +5,15 @@
     }
 }
 
-.sidebar-dx {
+.sidebar-dx, .footerFont {
     font-size: 0.8rem;
 }
 
-.nav-link {
+.nav-link, .ftText {
     color: #c2c2c2 !important;
+    &:hover {
+        color: #fff !important;
+    }
 }
 
 ::-webkit-scrollbar {
@@ -23,3 +26,34 @@
         background-color: rgb(91, 91, 91);
     }
 }
+
+.customAvatar{
+    width: 40px;
+}
+
+.wHr{
+    width: 90%;
+    padding-left: 0;
+}
+
+input[type="range"].customRange{
+    // -webkit-appearance: none;
+    // -moz-appearance: none;
+    // appearance: none;
+    // background: transparent;
+    width: 50%;
+    
+}
+
+input[type="range"].customPlay{
+    width: 100%;
+}
+
+// .customRange::-webkit-slider-thumb {
+//     -webkit-appearance: none; /* Override default look */
+//     appearance: none;
+//     width: 25px; /* Set a specific slider handle width */
+//     height: 25px; /* Slider handle height */
+//     background: #04AA6D; /* Green background */
+//     cursor: pointer; /* Cursor on hover */
+//   }
