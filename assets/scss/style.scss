@@ -70,6 +70,19 @@ input[type="range"].customPlay{
 //     cursor: pointer; /* Cursor on hover */
 //   }
 
+
+#centralAvatar{
+    width: 20px;
+}
+
+#bgCentral{
+    background: linear-gradient(#969696 , #1F1F1F);
+}
+
+#modOpacity{
+    background-color: rgba(0, 0, 0,0.25);
+}
+
 .centralPart {
     background-color: #212121;
     color: #ebebeb;
@@ -87,3 +100,4 @@ input[type="range"].customPlay{
     font-size: 0.6rem;
     background-color: #222222;
 }
+
