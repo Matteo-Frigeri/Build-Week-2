@@ -5,8 +5,9 @@
     }
 }
 
-.sidebar-dx, .footerFont {
-    font-size: 0.8rem;
+.sidebar-dx, .footerFont,
+.centralPart .container-fluid p {
+    font-size: 0.7rem;
 }
 
 .nav-link, .ftText {
@@ -25,6 +26,10 @@
     &:hover {
         background-color: rgb(91, 91, 91);
     }
+}
+
+.h6 {
+    font-size: 0.8rem;
 }
 
 .customAvatar{
@@ -58,6 +63,7 @@ input[type="range"].customPlay{
 //     cursor: pointer; /* Cursor on hover */
 //   }
 
+
 #centralAvatar{
     width: 20px;
 }
@@ -69,3 +75,22 @@ input[type="range"].customPlay{
 #modOpacity{
     background-color: rgba(0, 0, 0,0.25);
 }
+
+.centralPart {
+    background-color: #212121;
+    color: #ebebeb;
+}
+
+.announce {
+    background-image: linear-gradient(to top right, black, #212121);
+    p {
+        font-size: 0.7rem !important;
+    }
+}
+
+.hideAnnounce {
+    width: 8rem;
+    font-size: 0.6rem;
+    background-color: #222222;
+}
+
