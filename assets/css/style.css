@@ -42,4 +42,16 @@ input[type=range].customRange {
 
 input[type=range].customPlay {
   width: 100%;
+}
+
+#centralAvatar {
+  width: 20px;
+}
+
+#bgCentral {
+  background: linear-gradient(#969696, #1F1F1F);
+}
+
+#modOpacity {
+  background-color: rgba(0, 0, 0, 0.25);
 }/*# sourceMappingURL=style.css.map */
