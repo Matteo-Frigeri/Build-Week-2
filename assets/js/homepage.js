@@ -44,7 +44,7 @@ function populateBannerHome(track) {
                         </div>
                         <div class="col-8 ms-5">
                             <p class="mb-3 mt-1">ALBUM</p>
-                            <h1 class="display-5 fw-bold lh-1 mb-2 text-nowrap">${track.title_short}</h1>
+                            <h1 class="display-5 fw-bold lh-1 mb-2">${track.title_short}</h1>
                             <p class="mb-2">${track.artist.name}</p>
                             <p class="mb-2">Ascolta il grande classico dei ${track.artist.name}!</p>
                             <div class="d-grid gap-3 d-flex mb-2 align-items-center">
