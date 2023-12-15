@@ -1,6 +1,7 @@
 const urlTrack = "https://striveschool-api.herokuapp.com/api/deezer/track/";
 const urlAlbum = "https://striveschool-api.herokuapp.com/api/deezer/album/";
 const urlArtist = "https://striveschool-api.herokuapp.com/api/deezer/artist/";
+const urlSearch = "https://striveschool-api.herokuapp.com/api/deezer/search?q=";
 const bannerHomeQueen = [9997018, 12206946, 12206933, 568120932, 7868649];
 const headers = {
   Accept: "application/json",
@@ -20,6 +21,19 @@ function init() {
       populateBannerHome(track);
     })
     .catch((err) => console.log(err));
+
+    fetch("https://striveschool-api.herokuapp.com/api/product/", {
+    headers: {
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTdjM2ZiY2QxZGYyYjAwMThmMjk3YTQiLCJpYXQiOjE3MDI2NDE1OTYsImV4cCI6MTcwMzg1MTE5Nn0.DI0LNNdE4ZzXf8unKeaj3veYk9cataeFdQ_eZ6YSXZo",
+      "Content-type": "application/json",
+    },
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      createPlaylist(data);
+    });
 }
 
 function populateBannerHome(track) {
@@ -47,18 +61,7 @@ function populateBannerHome(track) {
   let bannerContainer = document.querySelector(".bannerContainer");
   bannerContainer.innerHTML = banner;
 
-  fetch("https://striveschool-api.herokuapp.com/api/product/", {
-    headers: {
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTdjM2ZiY2QxZGYyYjAwMThmMjk3YTQiLCJpYXQiOjE3MDI2NDE1OTYsImV4cCI6MTcwMzg1MTE5Nn0.DI0LNNdE4ZzXf8unKeaj3veYk9cataeFdQ_eZ6YSXZo",
-      "Content-type": "application/json",
-    },
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data);
-      createPlaylist(data);
-    });
+  
 }
 
 function createPlaylist(playlist) {
@@ -85,3 +88,17 @@ function createPlaylist(playlist) {
     centralRow.innerHTML += cardPlaylist;
   });
 }
+
+// canzoni = [62710442,]
+// immaginiOggetti = [ {
+//   "url": "",
+//   "titolo": ""                   
+// }]
+
+function christmas() {
+   fetch (urlSearch + "christmas", 
+   {
+    
+   })
+}
+
