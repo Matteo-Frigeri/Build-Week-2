@@ -14,7 +14,7 @@ function init() {
   let id = bannerHomeQueen[index];
 
   fetch(urlTrack + id, {
-    headerd: headers,
+    headers: headers,
   })
     .then((response) => response.json())
     .then((track) => {
@@ -22,7 +22,7 @@ function init() {
     })
     .catch((err) => console.log(err));
 
-    fetch("https://striveschool-api.herokuapp.com/api/product/", {
+  fetch("https://striveschool-api.herokuapp.com/api/product/", {
     headers: {
       Authorization:
         "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTdjM2ZiY2QxZGYyYjAwMThmMjk3YTQiLCJpYXQiOjE3MDI2NDE1OTYsImV4cCI6MTcwMzg1MTE5Nn0.DI0LNNdE4ZzXf8unKeaj3veYk9cataeFdQ_eZ6YSXZo",
@@ -33,7 +33,8 @@ function init() {
     .then((data) => {
       console.log(data);
       createPlaylist(data);
-    });
+    })
+    .catch(err => console.log(err));
 }
 
 function populateBannerHome(track) {
@@ -60,13 +61,9 @@ function populateBannerHome(track) {
 
   let bannerContainer = document.querySelector(".bannerContainer");
   bannerContainer.innerHTML = banner;
-
-  
 }
 
 function createPlaylist(playlist) {
-  let randomNumber = Math.floor(Math.random() * playlist.length);
-
   playlist.forEach((el) => {
     let ulPlaylist = document.getElementById("sidebarUl");
     let liPlaylist = `<li class="list-group-item text-secondary bg-black border-0 ps-0 fw-bold">${el.name}</li>`;
@@ -83,7 +80,7 @@ function createPlaylist(playlist) {
     </div>
 </div>`;
 
-    let centralRow = document.getElementById('centralPlaylist')
+    let centralRow = document.getElementById("centralPlaylist");
 
     centralRow.innerHTML += cardPlaylist;
   });
@@ -92,13 +89,52 @@ function createPlaylist(playlist) {
 // canzoni = [62710442,]
 // immaginiOggetti = [ {
 //   "url": "",
-//   "titolo": ""                   
+//   "titolo": ""
 // }]
+let xmasArray= []
+let loveArray= []
+let stopArray= []
+let blackArray=[]
 
-function christmas() {
-   fetch (urlSearch + "christmas", 
-   {
-    
-   })
+function searchQuery(string, array) {
+  fetch(urlSearch + string, {
+    headers: headers,
+  })
+    .then((response) => response.json())
+    .then((albums) => {
+      console.log(albums)
+      array = albums;
+      createAlbums(string, array)
+    });
 }
 
+searchQuery('christmas', xmasArray)
+searchQuery('love', loveArray)
+searchQuery('stop', stopArray)
+searchQuery('black', blackArray)
+
+function createAlbums(string, array) {
+  let centralPg = document.querySelector('.centralPart');
+  let introAlbumCentralPart = `<h5 class="fw-bold my-4 ms-3">More of what you like</h5>
+  <div class="container-fluid">
+      <div class="row justify-content-evenly" id=${string}>`
+
+    centralPg.innerHTML += introAlbumCentralPart;
+
+  for (let i = 0; i < 5; i++) {
+
+    let artistName = array.data[i].artist.name;
+    let albumTitle = array.data[i].album.title;
+    let albumId = array.data[i].album.id;
+    let albumCover = array.data[i].album.cover_big;
+
+    let xmas = document.querySelector(`#${string}`);
+    let centralAlbum = `<div class="col-2">
+    <img src=${albumCover} class="w-100 rounded">
+    <p class="h6 m-2">${albumTitle}</p>
+    <p class="text-secondary h6 m-2">${artistName}</small>
+</div>`;
+
+    xmas.innerHTML += centralAlbum;
+  }
+}
