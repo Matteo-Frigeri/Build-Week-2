@@ -1,30 +1,29 @@
-const urlTrack = "https://striveschool-api.herokuapp.com/api/deezer/track/"
-const urlAlbum = "https://striveschool-api.herokuapp.com/api/deezer/album/"
-const urlArtist = "https://striveschool-api.herokuapp.com/api/deezer/artist/"
-const bannerHomeQueen = [9997018, 12206946, 12206933, 568120932, 7868649 ]
+const urlTrack = "https://striveschool-api.herokuapp.com/api/deezer/track/";
+const urlAlbum = "https://striveschool-api.herokuapp.com/api/deezer/album/";
+const urlArtist = "https://striveschool-api.herokuapp.com/api/deezer/artist/";
+const bannerHomeQueen = [9997018, 12206946, 12206933, 568120932, 7868649];
 const headers = {
-    "Accept": "application/json",
-    "Content-Type": "application/json"}
-window.onload = init()
+  Accept: "application/json",
+  "Content-Type": "application/json",
+};
+window.onload = init();
 
-function init(){
-    let index = Math.floor(Math.random()* 5)
-    let id = bannerHomeQueen[index] 
+function init() {
+  let index = Math.floor(Math.random() * 5);
+  let id = bannerHomeQueen[index];
 
-
-    fetch (urlTrack + id ,{
-        headerd: headers,
+  fetch(urlTrack + id, {
+    headerd: headers,
+  })
+    .then((response) => response.json())
+    .then((track) => {
+      populateBannerHome(track);
     })
-    .then(response => response.json())
-    .then(track => {
-        populateBannerHome(track)
-
-    })
-    .catch(err => console.log(err))  
+    .catch((err) => console.log(err));
 }
 
-function populateBannerHome(track){
-    const banner = `
+function populateBannerHome(track) {
+  const banner = `
     <div class="announce row d-flex align-items-center p-1 mt-2 mx-1 rounded position-relative">
                         <div class="col-2 ms-0 me-3">
                             <img src="${track.album.cover_medium}" alt="" style="width: 150px">
@@ -43,8 +42,46 @@ function populateBannerHome(track){
                         <div
                             class="hideAnnounce col text-secondary text-nowrap position-absolute end-0 top-0 mt-2 me-3 text-center py-1 rounded-pill">
                             NASCONDI ANNUNCI</div>
-                    </div>`
+                    </div>`;
 
-                    let bannerContainer = document.querySelector(".bannerContainer")
-                    bannerContainer.innerHTML = banner
+  let bannerContainer = document.querySelector(".bannerContainer");
+  bannerContainer.innerHTML = banner;
+
+  fetch("https://striveschool-api.herokuapp.com/api/product/", {
+    headers: {
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTdjM2ZiY2QxZGYyYjAwMThmMjk3YTQiLCJpYXQiOjE3MDI2NDE1OTYsImV4cCI6MTcwMzg1MTE5Nn0.DI0LNNdE4ZzXf8unKeaj3veYk9cataeFdQ_eZ6YSXZo",
+      "Content-type": "application/json",
+    },
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      createPlaylist(data);
+    });
+}
+
+function createPlaylist(playlist) {
+  let randomNumber = Math.floor(Math.random() * playlist.length);
+
+  playlist.forEach((el) => {
+    let ulPlaylist = document.getElementById("sidebarUl");
+    let liPlaylist = `<li class="list-group-item text-secondary bg-black border-0 ps-0 fw-bold">${el.name}</li>`;
+
+    ulPlaylist.innerHTML += liPlaylist;
+  });
+
+  playlist.forEach((element) => {
+    let cardPlaylist = ` <div class="col-4">
+    <div class="bg-secondary mb-2 d-flex rounded align-items-center gap-2">
+        <img src=${element.imageUrl}
+            class="img-fluid rounded-start imgSizing">
+        <p class="fw-bold h6">${element.name}</p>
+    </div>
+</div>`;
+
+    let centralRow = document.getElementById('centralPlaylist')
+
+    centralRow.innerHTML += cardPlaylist;
+  });
 }
