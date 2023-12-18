@@ -33,7 +33,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link text-white ps-2 d-flex align-items-center gap-3">
+                        <a href="searchpage.html" class="nav-link text-white ps-2 d-flex align-items-center gap-3">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                 class="bi bi-search" viewBox="0 0 16 16">
                                 <path
@@ -95,166 +95,59 @@
                 </div>
             </div>
             <div class="centralPart col col-9-xl overflow-auto mb-5 pb-2">
-                <div class="container">
-                    <div class="d-flex justify-content-between">
-                        <div class="d-flex gap-2 mt-2 ms-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor"
-                                class="bi bi-arrow-left-circle-fill text-secondary" viewBox="0 0 16 16">
-                                <path
-                                    d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
-                            </svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor"
-                                class="bi bi-arrow-right-circle-fill text-secondary" viewBox="0 0 16 16">
-                                <path
-                                    d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z" />
-                            </svg>
+                <div class="d-flex">
+                    <div class="d-flex gap-2 mt-2 ms-3 justify-content-between align-items-center w-100">
+                        <!--blocco freccie-->
+                        <div class="d-none d-md-flex gap-2">
+                            <div class="bg-black d-flex align-items-center rounded-5 historyBack">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="gray"
+                                    class="bi bi-arrow-left-short" onclick="history.back()" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5" />
+                                </svg>
+                            </div>
+                            <div class="bg-black d-flex align-items-center rounded-5">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="gray"
+                                    class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8" />
+                                </svg>
+                            </div>
                         </div>
-                        <div>
+                        <!--user scroll-bar-->
+                        <div class="d-none d-md-flex">
                             <div class="dropdown me-3">
-                                <button class="btn btn-secondary dropdown-toggle  rounded-5 bg-dark opacity-75 mt-2"
+                                <button class="btn btn-secondary btn-sm dropdown-toggle rounded-5 bg-dark opacity-100 mt-2"
                                     type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="assets/img/Screenshot 2023-12-13 alle 16.43.05.png" alt="immagine avatar"
-                                        class="rounded-5" id="centralAvatar">
+                                    <img src="assets/img/Screenshot 2023-12-13 alle 16.43.05.png"
+                                        alt="immagine avatar" class="rounded-5" id="centralAvatar">
                                     Giovanni Giorgio
                                 </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <ul class="dropdown-menu bg-dark opacity-75">
+                                    <li><a class="dropdown-item text-light" href="#"><img src="assets/img/Screenshot 2023-12-13 alle 16.43.05.png"
+                                        alt="immagine avatar" class="rounded-5" id="centralAvatar">
+                                    Giorgio Giovanni</a></li>
+                                    <li><a class="dropdown-item text-light" href="#"><img src="assets/img/Screenshot 2023-12-13 alle 16.43.05.png"
+                                        alt="immagine avatar" class="rounded-5" id="centralAvatar">
+                                    George</a></li>
+                                    <li><a class="dropdown-item text-light" href="#"><img src="assets/img/Screenshot 2023-12-13 alle 16.43.05.png"
+                                        alt="immagine avatar" class="rounded-5" id="centralAvatar">
+                                    Suo fratello</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="container bannerContainer">
-                <!-- dinamico -->
+                    <!-- dinamico -->
                 </div>
                 <h3 class="fw-bold mt-3 ms-3">Bentornat*</h3>
                 <div class="container-fluid">
                     <div class="row" id="centralPlaylist">
-                       <!-- dinamico -->
+                        <!-- dinamico -->
                     </div>
                 </div>
-                <!-- <h5 class="fw-bold my-4 ms-3">Buon Natale</h5>
-                <div class="container-fluid">
-                    <div class="row justify-content-evenly" id="christmas"> -->
-                        <!-- <div class="col-2">
-                            <img src="https://images.macrumors.com/t/MKlRm9rIBpfcGnjTpf6ZxgpFTUg=/1600x1200/smart/article-new/2018/05/apple-music-note.jpg" class="w-100 rounded">
-                            <p class="h6 m-2">Playlist</p>
-                            <p class="text-secondary h6 m-2">Playlist più ascoltate</small>
-                        </div>
-                         <div class="col-2">
-                            <img src="https://images.macrumors.com/t/MKlRm9rIBpfcGnjTpf6ZxgpFTUg=/1600x1200/smart/article-new/2018/05/apple-music-note.jpg" class="w-100 rounded">
-                            <p class="h6 m-2">Playlist</p>
-                            <p class="text-secondary h6 m-2">Playlist più ascoltate</small>
-                        </div>
-                         <div class="col-2">
-                            <img src="https://images.macrumors.com/t/MKlRm9rIBpfcGnjTpf6ZxgpFTUg=/1600x1200/smart/article-new/2018/05/apple-music-note.jpg" class="w-100 rounded">
-                            <p class="h6 m-2">Playlist</p>
-                            <p class="text-secondary h6 m-2">Playlist più ascoltate</small>
-                        </div>
-                         <div class="col-2">
-                            <img src="https://images.macrumors.com/t/MKlRm9rIBpfcGnjTpf6ZxgpFTUg=/1600x1200/smart/article-new/2018/05/apple-music-note.jpg" class="w-100 rounded">
-                            <p class="h6 m-2">Playlist</p>
-                            <p class="text-secondary h6 m-2">Playlist più ascoltate</small>
-                        </div>
-                         <div class="col-2">
-                            <img src="https://images.macrumors.com/t/MKlRm9rIBpfcGnjTpf6ZxgpFTUg=/1600x1200/smart/article-new/2018/05/apple-music-note.jpg" class="w-100 rounded">
-                            <p class="h6 m-2">Playlist</p>
-                            <p class="text-secondary h6 m-2">Playlist più ascoltate</p>
-                        </div> -->
-                    <!-- </div>
-                </div> -->
-                <!-- <h5 class="fw-bold my-4 ms-3">Altro che ti piace</h5>
-                <div class="container-fluid">
-                    <div class="row justify-content-evenly">
-                        <div class="col-2">
-                            <img src="https://images.macrumors.com/t/MKlRm9rIBpfcGnjTpf6ZxgpFTUg=/1600x1200/smart/article-new/2018/05/apple-music-note.jpg" class="w-100 rounded">
-                            <p class="h6 m-2">Playlist</p>
-                            <p class="text-secondary h6 m-2">Playlist più ascoltate</small>
-                        </div>
-                         <div class="col-2">
-                            <img src="https://images.macrumors.com/t/MKlRm9rIBpfcGnjTpf6ZxgpFTUg=/1600x1200/smart/article-new/2018/05/apple-music-note.jpg" class="w-100 rounded">
-                            <p class="h6 m-2">Playlist</p>
-                            <p class="text-secondary h6 m-2">Playlist più ascoltate</small>
-                        </div>
-                         <div class="col-2">
-                            <img src="https://images.macrumors.com/t/MKlRm9rIBpfcGnjTpf6ZxgpFTUg=/1600x1200/smart/article-new/2018/05/apple-music-note.jpg" class="w-100 rounded">
-                            <p class="h6 m-2">Playlist</p>
-                            <p class="text-secondary h6 m-2">Playlist più ascoltate</small>
-                        </div>
-                         <div class="col-2">
-                            <img src="https://images.macrumors.com/t/MKlRm9rIBpfcGnjTpf6ZxgpFTUg=/1600x1200/smart/article-new/2018/05/apple-music-note.jpg" class="w-100 rounded">
-                            <p class="h6 m-2">Playlist</p>
-                            <p class="text-secondary h6 m-2">Playlist più ascoltate</small>
-                        </div>
-                         <div class="col-2">
-                            <img src="https://images.macrumors.com/t/MKlRm9rIBpfcGnjTpf6ZxgpFTUg=/1600x1200/smart/article-new/2018/05/apple-music-note.jpg" class="w-100 rounded">
-                            <p class="h6 m-2">Playlist</p>
-                            <p class="text-secondary h6 m-2">Playlist più ascoltate</p>
-                        </div>
-                    </div>
-                </div>
-                <h5 class="fw-bold my-4 ms-3">Altro che ti piace</h5>
-                <div class="container-fluid">
-                    <div class="row justify-content-evenly">
-                        <div class="col-2">
-                            <img src="https://images.macrumors.com/t/MKlRm9rIBpfcGnjTpf6ZxgpFTUg=/1600x1200/smart/article-new/2018/05/apple-music-note.jpg" class="w-100 rounded">
-                            <p class="h6 m-2">Playlist</p>
-                            <p class="text-secondary h6 m-2">Playlist più ascoltate</small>
-                        </div>
-                         <div class="col-2">
-                            <img src="https://images.macrumors.com/t/MKlRm9rIBpfcGnjTpf6ZxgpFTUg=/1600x1200/smart/article-new/2018/05/apple-music-note.jpg" class="w-100 rounded">
-                            <p class="h6 m-2">Playlist</p>
-                            <p class="text-secondary h6 m-2">Playlist più ascoltate</small>
-                        </div>
-                         <div class="col-2">
-                            <img src="https://images.macrumors.com/t/MKlRm9rIBpfcGnjTpf6ZxgpFTUg=/1600x1200/smart/article-new/2018/05/apple-music-note.jpg" class="w-100 rounded">
-                            <p class="h6 m-2">Playlist</p>
-                            <p class="text-secondary h6 m-2">Playlist più ascoltate</small>
-                        </div>
-                         <div class="col-2">
-                            <img src="https://images.macrumors.com/t/MKlRm9rIBpfcGnjTpf6ZxgpFTUg=/1600x1200/smart/article-new/2018/05/apple-music-note.jpg" class="w-100 rounded">
-                            <p class="h6 m-2">Playlist</p>
-                            <p class="text-secondary h6 m-2">Playlist più ascoltate</small>
-                        </div>
-                         <div class="col-2">
-                            <img src="https://images.macrumors.com/t/MKlRm9rIBpfcGnjTpf6ZxgpFTUg=/1600x1200/smart/article-new/2018/05/apple-music-note.jpg" class="w-100 rounded">
-                            <p class="h6 m-2">Playlist</p>
-                            <p class="text-secondary h6 m-2">Playlist più ascoltate</p>
-                        </div>
-                    </div>
-                </div>
-                <h5 class="fw-bold my-4 ms-3">Altro che ti piace</h5>
-                <div class="container-fluid">
-                    <div class="row justify-content-evenly">
-                        <div class="col-2">
-                            <img src="https://images.macrumors.com/t/MKlRm9rIBpfcGnjTpf6ZxgpFTUg=/1600x1200/smart/article-new/2018/05/apple-music-note.jpg" class="w-100 rounded">
-                            <p class="h6 m-2">Playlist</p>
-                            <p class="text-secondary h6 m-2">Playlist più ascoltate</small>
-                        </div>
-                         <div class="col-2">
-                            <img src="https://images.macrumors.com/t/MKlRm9rIBpfcGnjTpf6ZxgpFTUg=/1600x1200/smart/article-new/2018/05/apple-music-note.jpg" class="w-100 rounded">
-                            <p class="h6 m-2">Playlist</p>
-                            <p class="text-secondary h6 m-2">Playlist più ascoltate</small>
-                        </div>
-                         <div class="col-2">
-                            <img src="https://images.macrumors.com/t/MKlRm9rIBpfcGnjTpf6ZxgpFTUg=/1600x1200/smart/article-new/2018/05/apple-music-note.jpg" class="w-100 rounded">
-                            <p class="h6 m-2">Playlist</p>
-                            <p class="text-secondary h6 m-2">Playlist più ascoltate</small>
-                        </div>
-                         <div class="col-2">
-                            <img src="https://images.macrumors.com/t/MKlRm9rIBpfcGnjTpf6ZxgpFTUg=/1600x1200/smart/article-new/2018/05/apple-music-note.jpg" class="w-100 rounded">
-                            <p class="h6 m-2">Playlist</p>
-                            <p class="text-secondary h6 m-2">Playlist più ascoltate</small>
-                        </div>
-                         <div class="col-2">
-                            <img src="https://images.macrumors.com/t/MKlRm9rIBpfcGnjTpf6ZxgpFTUg=/1600x1200/smart/article-new/2018/05/apple-music-note.jpg" class="w-100 rounded">
-                            <p class="h6 m-2">Playlist</p>
-                            <p class="text-secondary h6 m-2">Playlist più ascoltate</p>
-                        </div>
-                    </div>
-                </div> -->
+                <!-- dinamico -->
             </div>
             <div class="sidebar-sx col-2 bg-black d-none d-xl-block">
                 <div class="d-flex align-items-center justify-content-end gap-4 mt-1">

@@ -1,0 +1,88 @@
+const urlAlbum = "https://striveschool-api.herokuapp.com/api/deezer/album/";
+const urlSearch = "https://striveschool-api.herokuapp.com/api/deezer/search?q=";
+const headers = {
+    Accept: "application/json",
+    "Content-Type": "application/json",
+  };
+
+const searchParams = new URLSearchParams(window.location.search)
+const id = searchParams.get("id")
+
+populateAlbumPage(id)
+
+
+async function populateAlbumPage(id){
+    await fetch(urlAlbum + id, {
+        headers: headers,
+      })
+        .then((response) => response.json())
+        .then((album) => {
+            console.log(album)
+            printAlbumInfo(album)
+            printAlbumSongs(album)
+        })
+        .catch((err) => console.log(err));
+}
+
+
+function printAlbumInfo(album){
+    let albumTitle = album.title
+    let albumArtist = album.artist.name
+    let albumCover = album.cover_big
+    let albumRelease = album.release_date
+    let artistImage = album.artist.picture_small
+    let albumReleaseYear = albumRelease.substring(0,4)
+    let tracksNumber = album.nb_tracks
+    let albumDuration = album.duration 
+
+    let minutes = Math.floor(albumDuration / 60)
+    let seconds = (albumDuration % 60).toString()
+    if(seconds.length === 1){
+        seconds = "0" + seconds
+    }
+    let time = `${minutes} min e ${seconds} sec`
+
+    let containerAlbumCover = document.querySelector(".albumCover")
+    containerAlbumCover.setAttribute("src", `${albumCover}`)
+
+    let containerAlbumName = document.querySelector(".albumName")
+    containerAlbumName.innerText = albumTitle
+
+    let containerArtistImage = document.querySelector(".artistImage")
+    containerArtistImage.setAttribute("src", `${artistImage}`)
+    
+    let containerAlbumInfo = document.querySelector(".albumInfo")
+    containerAlbumInfo.innerText = `${albumArtist} • ${albumReleaseYear} • ${tracksNumber} brani, ${time}`
+}
+
+
+// titolo, nome artista, rank, time
+
+function printAlbumSongs(album) {
+    let songs = album.tracks.data
+    songs.forEach((element, index) => {
+        let title = element.title_short
+        let artist = element.artist.name
+        let rank = element.rank
+        let duration = element.duration
+        let minutes = Math.floor(duration / 60)
+        let seconds = (duration % 60).toString()
+        if(seconds.length === 1){
+            seconds = "0" + seconds
+        }
+        let time = `${minutes}:${seconds}`
+
+        let songCard = `
+        <li class="row pt-2 popular align-items-center">
+            <span class="col-1">${index + 1}</span>
+            <div class="col-6 d-flex flex-column">
+                <span class="text-light songTitle">${title}</span>
+                <span class="artistName h6">${artist}</span>
+            </div>
+            <p class="col-3 rank">${rank}</p>
+            <p class="col-1 ms-4 time">${time}</p>
+        </li>`
+        let songsList = document.querySelector(".songsList")
+        songsList.innerHTML += songCard
+    })
+}

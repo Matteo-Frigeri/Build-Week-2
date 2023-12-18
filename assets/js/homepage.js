@@ -7,13 +7,14 @@ const headers = {
   Accept: "application/json",
   "Content-Type": "application/json",
 };
-window.onload = init();
 
-function init() {
+init();
+
+async function init() {
   let index = Math.floor(Math.random() * 5);
   let id = bannerHomeQueen[index];
 
-  fetch(urlTrack + id, {
+  await fetch(urlTrack + id, {
     headers: headers,
   })
     .then((response) => response.json())
@@ -22,7 +23,7 @@ function init() {
     })
     .catch((err) => console.log(err));
 
-  fetch("https://striveschool-api.herokuapp.com/api/product/", {
+  await fetch("https://striveschool-api.herokuapp.com/api/product/", {
     headers: {
       Authorization:
         "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTdjM2ZiY2QxZGYyYjAwMThmMjk3YTQiLCJpYXQiOjE3MDI2NDE1OTYsImV4cCI6MTcwMzg1MTE5Nn0.DI0LNNdE4ZzXf8unKeaj3veYk9cataeFdQ_eZ6YSXZo",
@@ -73,9 +74,9 @@ function createPlaylist(playlist) {
 
   playlist.forEach((element) => {
     let cardPlaylist = ` <div class="col-4">
-    <div class="bg-secondary mb-2 d-flex rounded align-items-center gap-2">
+    <div class="bg-black mb-2 d-flex rounded p-2 align-items-center gap-2">
         <img src=${element.imageUrl}
-            class="img-fluid rounded-start imgSizing">
+            class="img-fluid rounded imgSizing">
         <p class="fw-bold h6">${element.name}</p>
     </div>
 </div>`;
@@ -86,11 +87,6 @@ function createPlaylist(playlist) {
   });
 }
 
-// canzoni = [62710442,]
-// immaginiOggetti = [ {
-//   "url": "",
-//   "titolo": ""
-// }]
 let xmasArray= []
 let loveArray= []
 let stopArray= []
@@ -124,17 +120,31 @@ function createAlbums(string, array) {
   for (let i = 0; i < 5; i++) {
 
     let artistName = array.data[i].artist.name;
+    let artistId = array.data[i].artist.id;
     let albumTitle = array.data[i].album.title;
     let albumId = array.data[i].album.id;
     let albumCover = array.data[i].album.cover_big;
 
     let xmas = document.querySelector(`#${string}`);
-    let centralAlbum = `<div class="col-2">
-    <img src=${albumCover} class="w-100 rounded">
-    <p class="h6 m-2">${albumTitle}</p>
-    <p class="text-secondary h6 m-2">${artistName}</small>
+    let centralAlbum = `<div class="col-2 clickable playSong">
+    <div class="position-relative">
+      <img src=${albumCover} class="w-100 rounded clickable" onclick="goToAlbumPage(${albumId})">
+      <svg xmlns="http://www.w3.org/2000/svg" height="28" width="28" viewBox="0 0 512 512" fill="green" class="position-absolute bottom-0 end-0 m-1 hide">
+        <path d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c-7.6 4.2-12.3 12.3-12.3 20.9V344c0 8.7 4.7 16.7 12.3 20.9s16.8 4.1 24.3-.5l144-88c7.1-4.4 11.5-12.1 11.5-20.5s-4.4-16.1-11.5-20.5l-144-88c-7.4-4.5-16.7-4.7-24.3-.5z" />
+      </svg>
+    </div>
+    <p class="h6 m-2 clickable" onclick="goToAlbumPage(${albumId})">${albumTitle}</p>
+    <p class="text-secondary h6 m-2 clickable" onclick="goToArtistPage(${artistId})">${artistName}</small>
 </div>`;
 
     xmas.innerHTML += centralAlbum;
   }
+}
+
+function goToAlbumPage(id){
+  window.location.href = `albumpage.html?id=${id}`
+}
+
+function goToArtistPage(id){
+  window.location.href = `artistpage.html?id=${id}`
 }

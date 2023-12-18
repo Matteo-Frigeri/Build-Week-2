@@ -149,15 +149,14 @@
 
             <!--blocco centrale-->
             <div class="col-12 col-md-9 p-0 col-xl-7 bg-black scrollable-div overflow-scroll" style="height: 100vh">
-                <div class="mt-md-0" style="background-image:url('./assets/img/Nina-Simone-Wild-is-the-Wind-1966.jpg');background-size: cover;
-                background-repeat: no-repeat; background-position: center center;">
+                <div class="mt-md-0 artistPicture">
                     <div class="d-flex">
                         <div class="d-flex gap-2 mt-2 ms-3 justify-content-between align-items-center w-100">
                             <!--blocco freccie-->
                             <div class="d-none d-md-flex gap-2">
-                                <div class="bg-black d-flex align-items-center rounded-5">
+                                <div class="bg-black d-flex align-items-center rounded-5 historyBack">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="gray"
-                                        class="bi bi-arrow-left-short" viewBox="0 0 16 16">
+                                        class="bi bi-arrow-left-short" onclick="history.back()" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd"
                                             d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5" />
                                     </svg>
@@ -190,19 +189,16 @@
                     </div>
                     <div class="text-light mt-5 pt-5 pb-2 ms-3">
                         <div class="d-flex gap-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512"
-                                class="text-primary">
-                                <path
-                                    d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-                                    fill="currentColor" />
-                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-check-fill text-primary mt-1" viewBox="0 0 16 16">
+                                <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z"/>
+                              </svg>
                             <p>Artista verificato</p>
                         </div>
                         <div>
-                            <h1 class="display-3">Nome Artistra</h1>
+                            <h1 class="display-3 artistName"></h1>
                         </div>
                         <div>
-                            <p>Numero di ascoltatori mensili</p>
+                            <p class="nb_fan h6"></p>
                         </div>
                     </div>
                 </div>
@@ -224,49 +220,10 @@
                     </div>
                     <div class="container text-light mt-3 ms-2 mb-5">
                         <div class="row">
-                            <div class="col-10">
-                                <h5>Popolari</h5>
-                                <ol>
-                                    <li class="pt-2">
-                                        <img class="img-fluid ps-2"
-                                            src="./assets/img/Nina-Simone-Wild-is-the-Wind-1966.jpg"
-                                            alt="immagine traccia" style="width: 15%; height: 15%;">
-                                        <p class="ps-2 d-inline">Nome traccia</p>
-                                        <p class="ps-5 d-inline text-secondary">1000000</p>
-                                        <p class="ps-5 d-inline text-secondary">3:57</p>
-                                    </li>
-                                    <li class="pt-2">
-                                        <img class="img-fluid ps-2"
-                                            src="./assets/img/Nina-Simone-Wild-is-the-Wind-1966.jpg"
-                                            alt="immagine traccia" style="width: 15%; height: 15%;">
-                                        <p class="ps-2 d-inline">Nome traccia</p>
-                                        <p class="ps-5 d-inline text-secondary">1000000</p>
-                                        <p class="ps-5 d-inline text-secondary">3:57</p>
-                                    </li>
-                                    <li class="pt-2">
-                                        <img class="img-fluid ps-2"
-                                            src="./assets/img/Nina-Simone-Wild-is-the-Wind-1966.jpg"
-                                            alt="immagine traccia" style="width: 15%; height: 15%;">
-                                        <p class="ps-2 d-inline">Nome traccia</p>
-                                        <p class="ps-5 d-inline text-secondary">1000000</p>
-                                        <p class="ps-5 d-inline text-secondary">3:57</p>
-                                    </li>
-                                    <li class="pt-2">
-                                        <img class="img-fluid ps-2"
-                                            src="./assets/img/Nina-Simone-Wild-is-the-Wind-1966.jpg"
-                                            alt="immagine traccia" style="width: 15%; height: 15%;">
-                                        <p class="ps-2 d-inline">Nome traccia</p>
-                                        <p class="ps-5 d-inline text-secondary">1000000</p>
-                                        <p class="ps-5 d-inline text-secondary">3:57</p>
-                                    </li>
-                                    <li class="pt-2">
-                                        <img class="img-fluid ps-2"
-                                            src="./assets/img/Nina-Simone-Wild-is-the-Wind-1966.jpg"
-                                            alt="immagine traccia" style="width: 15%; height: 15%;">
-                                        <p class="ps-2 d-inline">Nome traccia</p>
-                                        <p class="ps-5 d-inline text-secondary">1000000</p>
-                                        <p class="ps-5 d-inline text-secondary">3:57</p>
-                                    </li>
+                            <div class="col-12">
+                                <h5 class="ms-4 ps-1 my-3">Popolari</h5>
+                                <ol class="songsList mt-4">
+                                   <!-- dinamico -->
                                 </ol>
                             </div>
                         </div>
