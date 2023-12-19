@@ -20,6 +20,7 @@ async function populateArtistPage(id){
             console.log(artist)
             printArtistInfo(artist)
             printArtistSongs(artist)
+            populateFooter(artist)
         })
         .catch((err) => console.log(err));
 }
@@ -81,3 +82,7 @@ function populateSongs(songsList){
 
 
 
+function populateFooter(song){
+    let albumPicture = song[0].album.cover_small
+
+}

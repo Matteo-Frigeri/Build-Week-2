@@ -186,7 +186,7 @@
                                         <label for="searchQuery"></label>
                                         <input type="text"
                                             class="form-control bg-dark border-0 text-light rounded-right "
-                                            placeholder="Cosa vuoi ascoltare?" id="searchQuery" oninput="searchKeyword(this.value)">
+                                            placeholder="Cosa vuoi ascoltare?" id="searchQuery" oninput="debounce(this.value)">
                                     </div>
                                 </div>
                             </div>
@@ -210,7 +210,7 @@
                     </div>
                 </div>
                 <div class="mt-5 text-white mainCentralPart">
-                    <div class="containerResults row align-items-start">
+                    <div class="containerResults row align-items-start gap-1">
                        
                     </div>
                     <div class="containerCards">
@@ -218,8 +218,9 @@
                         <h4 class="d-md-none text-center">Sfoglia tutto</h4>
                 
                         <div class="container-fluid">
-                
+               
                             <div class="row gap-3 p-2 cardContainer">
+                                 <!-- dinamico -->
                             </div>
                         </div>
                     </div>

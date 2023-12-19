@@ -119,3 +119,14 @@ input[type=range].customPlay {
   position: static;
   flex: 1 1 10rem;
 }
+
+.bodyCard:hover{
+  background-color:#222222;
+  color: #fff;
+  cursor: pointer;
+}
+
+.topResultBody:hover{
+  background-color:#2e2e30 !important;
+  cursor: pointer;
+}
