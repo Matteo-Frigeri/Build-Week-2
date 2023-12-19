@@ -193,6 +193,6 @@ createFooter(newJson);
 
 function saveSong(song){
   let stringSong = JSON.stringify(song)
-  localStorage.setItem("songArtist", stringSong)
+  localStorage.setItem("song", stringSong)
 
 }
