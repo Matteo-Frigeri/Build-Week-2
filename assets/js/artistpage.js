@@ -23,7 +23,47 @@ async function populateArtistPage(id){
             printArtistSongs(artist)
         })
         .catch((err) => console.log(err));
+
+        await fetch("https://striveschool-api.herokuapp.com/api/product/", {
+            headers: {
+              Authorization:
+                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTdjM2ZiY2QxZGYyYjAwMThmMjk3YTQiLCJpYXQiOjE3MDI2NDE1OTYsImV4cCI6MTcwMzg1MTE5Nn0.DI0LNNdE4ZzXf8unKeaj3veYk9cataeFdQ_eZ6YSXZo",
+              "Content-type": "application/json",
+            },
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(data);
+              createPlaylist(data);
+            })
+            .catch(err => console.log(err));
 }
+
+function createPlaylist(playlist) {
+    playlist.forEach((el) => {
+      let ulPlaylist = document.getElementById("sidebarUl");
+      let liPlaylist = `<li class="list-group-item text-secondary bg-black border-0 ps-0 fw-bold">${el.name}</li>`;
+  
+      ulPlaylist.innerHTML += liPlaylist;
+    });
+  
+    playlist.forEach((element) => {
+      let cardPlaylist = ` <div class="col-4">
+      <div class="bg-black mb-2 d-flex rounded p-2 align-items-center gap-2">
+          <img src=${element.imageUrl}
+              class="img-fluid rounded imgSizing">
+          <p class="fw-bold h6">${element.name}</p>
+      </div>
+  </div>`;
+  
+      let centralRow = document.getElementById("centralPlaylist");
+  
+      centralRow.innerHTML += cardPlaylist;
+    });
+  }
+
+
+
 
 function printArtistInfo(artist){
     let artistName = artist.name
