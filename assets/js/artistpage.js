@@ -1,5 +1,6 @@
 const urlArtist = "https://striveschool-api.herokuapp.com/api/deezer/artist/";
 const urlSearch = "https://striveschool-api.herokuapp.com/api/deezer/search?q=";
+const urlTrack = "https://striveschool-api.herokuapp.com/api/deezer/track/";
 const headers = {
     Accept: "application/json",
     "Content-Type": "application/json",
@@ -20,7 +21,6 @@ async function populateArtistPage(id){
             console.log(artist)
             printArtistInfo(artist)
             printArtistSongs(artist)
-            populateFooter(artist)
         })
         .catch((err) => console.log(err));
 }
@@ -53,12 +53,15 @@ async function printArtistSongs(artist){
     .catch(err => console.log(err))
 }
 
+let firstSong = ''
+
 function populateSongs(songsList){
-   
+   firstSong = songsList.data[0]
+
     for (let i = 0 ; i < 5 ; i++){
         let title = songsList.data[i].title
         let rank = songsList.data[i].rank
-
+        let idTrack = songsList.data[i].id
         let duration = songsList.data[i].duration
         let minutes = Math.floor(duration / 60)
         let seconds = (duration % 60).toString()
@@ -68,7 +71,7 @@ function populateSongs(songsList){
         let time = `${minutes}:${seconds}`
 
         let image = songsList.data[i].album.cover_medium
-        let songCard = `<li class="row pt-2 my-2 popular align-items-center">
+        let songCard = `<li class="row pt-2 my-2 popular align-items-center" onclick="populateFooter(this.id)" id="id${idTrack}">
                 <span class="col-1">${i + 1}</span>
                 <img class="img-fluid col-2 ps-2" src=${image} alt="immagine traccia" style="width: 15%; height: 15%;">
                 <p class="col ps-2 d-inline">${title}</p>
@@ -80,9 +83,47 @@ function populateSongs(songsList){
     }
 }
 
+let chosenTrack = ''
+
+function populateFirstFooter(){
+    fetch(urlTrack + firstSong.id, {
+        headers: headers,
+      })
+        .then((response) => response.json())
+        .then((song) => {
+            console.log(song)
+            getFooterInfo(song)
+        })
+        .catch((err) => console.log(err));
+}
+
+function getFooterInfo(song){
+    let footerContainer = document.querySelector('.footerContainer')
+    footerContainer.innerHTML = ''
+    let albumPicture = song.album.cover_small
+    let albumArtist = song.artist.name
+    let songTitle = song.title
 
 
-function populateFooter(song){
-    let albumPicture = song[0].album.cover_small
+    footerContainer.innerHTML += `<div class="col-2 me-2 p-0 d-none d-sm-block"><img src=${albumPicture} alt="avatar"
+    class="customAvatar m-3">
+    </div>
+    <div class="col-6 ms-1">
+    <small class="fw-bold text-light text-nowrap p-0 ms-3 mb-0 footerFont">${songTitle}</small>
+    <small class="text-secondary m-0 text-nowrap p-0 mb-3 ms-3 mt-0 footerFont">${albumArtist}</small>
+    </div>`
+}
 
+function populateFooter(id){
+    let track = id.substring(2)
+    console.log(track)
+    fetch(urlTrack + track, {
+        headers: headers,
+      })
+        .then((response) => response.json())
+        .then((song) => {
+            console.log(song)
+            getFooterInfo(song)
+        })
+        .catch((err) => console.log(err));
 }

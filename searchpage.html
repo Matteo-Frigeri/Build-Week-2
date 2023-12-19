@@ -175,7 +175,7 @@
                                 <div class="container w-auto">
                                     <div class="input-group">
                                         <div class="input-group-prepend" style="margin-right: -2%;">
-                                            <button class="btn btn-dark border-0">
+                                            <button class="btn btn-dark border-0"  onclick="searchKeyword()">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                                     fill="gray" class="bi bi-search" viewBox="0 0 16 16">
                                                     <path
@@ -183,10 +183,12 @@
                                                 </svg>
                                             </button>
                                         </div>
+                                        <form>
                                         <label for="searchQuery"></label>
                                         <input type="text"
                                             class="form-control bg-dark border-0 text-light rounded-right "
-                                            placeholder="Cosa vuoi ascoltare?" id="searchQuery" oninput="debounce(this.value)">
+                                            placeholder="Cosa vuoi ascoltare?" id="searchQuery">
+                                        </form>
                                     </div>
                                 </div>
                             </div>

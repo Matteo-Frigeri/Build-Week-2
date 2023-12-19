@@ -83,37 +83,39 @@ function getImages(imageContent) {
 
 getImages(imageContent);
 
-// function searchKeyword(string) {
-//   fetch(urlSearch + string, {
-//     headers: headers,
-//   })
-//     .then((response) => response.json())
-//     .then((songs) => {
-//       populateSearchPage(songs);
-//       populateArtists(songs);
-//     });
-// }
-
-let oldValue = "";
-function debounce(value) {
-  // if (oldValue === "") {
-  //   oldValue = value;
-  // }
-  setTimeout(() => {
-    // if (oldValue === value) {
-      fetch(
-        `https://striveschool-api.herokuapp.com/api/deezer/search?q=${value}`
-      )
-        .then((response) => response.json())
-        .then((data) => {
-          populateSearchPage(data);
-          populateArtists(data);
-        });
-    // } else {
-    //   oldValue = value;
-    // }
-  }, 1000);
+function searchKeyword() {
+  let searchedkeyWord = document.getElementById('searchQuery').value
+  
+  fetch(urlSearch + searchedkeyWord, {
+    headers: headers,
+  })
+    .then((response) => response.json())
+    .then((songs) => {
+      populateSearchPage(songs);
+      populateArtists(songs);
+    });
 }
+
+// let oldValue = "";
+// function debounce(value) {
+//   // if (oldValue === "") {
+//   //   oldValue = value;
+//   // }
+//   setTimeout(() => {
+//     // if (oldValue === value) {
+//       fetch(
+//         `https://striveschool-api.herokuapp.com/api/deezer/search?q=${value}`
+//       )
+//         .then((response) => response.json())
+//         .then((data) => {
+//           populateSearchPage(data);
+//           populateArtists(data);
+//         });
+//     // } else {
+//     //   oldValue = value;
+//     // }
+//   }, 1000);
+// }
 
 function populateSearchPage(songs) {
   let containerResults = document.querySelector(".containerResults");

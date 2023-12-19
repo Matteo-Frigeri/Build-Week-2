@@ -1,5 +1,6 @@
 const urlAlbum = "https://striveschool-api.herokuapp.com/api/deezer/album/";
 const urlSearch = "https://striveschool-api.herokuapp.com/api/deezer/search?q=";
+const urlTrack = "https://striveschool-api.herokuapp.com/api/deezer/track/";
 const headers = {
     Accept: "application/json",
     "Content-Type": "application/json",
@@ -71,9 +72,10 @@ function printAlbumSongs(album) {
             seconds = "0" + seconds
         }
         let time = `${minutes}:${seconds}`
+        let idTrack = element.id
 
         let songCard = `
-        <li class="row pt-2 popular align-items-center">
+        <li class="row pt-2 popular align-items-center" onclick="populateFooter(this.id)" id="id${idTrack}")>
             <span class="col-1">${index + 1}</span>
             <div class="col-6 d-flex flex-column">
                 <span class="text-light songTitle">${title}</span>
@@ -85,4 +87,50 @@ function printAlbumSongs(album) {
         let songsList = document.querySelector(".songsList")
         songsList.innerHTML += songCard
     })
+}
+
+
+let chosenTrack = ''
+
+function populateFirstFooter(){
+    fetch(urlTrack + firstSong.id, {
+        headers: headers,
+      })
+        .then((response) => response.json())
+        .then((song) => {
+            console.log(song)
+            getFooterInfo(song)
+        })
+        .catch((err) => console.log(err));
+}
+
+function getFooterInfo(song){
+    let footerContainer = document.querySelector('.footerContainer')
+    footerContainer.innerHTML = ''
+    let albumPicture = song.album.cover_small
+    let albumArtist = song.artist.name
+    let songTitle = song.title
+
+
+    footerContainer.innerHTML += `<div class="col-2 me-2 p-0 d-none d-sm-block"><img src=${albumPicture} alt="avatar"
+    class="customAvatar m-3">
+    </div>
+    <div class="col-6 ms-1">
+    <small class="fw-bold text-light text-nowrap p-0 ms-3 mb-0 footerFont">${songTitle}</small>
+    <small class="text-secondary m-0 text-nowrap p-0 mb-3 ms-3 mt-0 footerFont">${albumArtist}</small>
+    </div>`
+}
+
+function populateFooter(id){
+    let track = id.substring(2)
+    console.log(track)
+    fetch(urlTrack + track, {
+        headers: headers,
+      })
+        .then((response) => response.json())
+        .then((song) => {
+            console.log(song)
+            getFooterInfo(song)
+        })
+        .catch((err) => console.log(err));
 }
