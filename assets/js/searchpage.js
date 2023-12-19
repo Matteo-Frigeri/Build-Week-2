@@ -243,3 +243,25 @@ function infoArtist(info) {
 
   artistResults.innerHTML += artistCard;
 }
+
+let newString = localStorage.getItem("song")
+
+let newJson = JSON.parse(newString)
+function createFooter(song){
+  let footerContainer = document.querySelector('.footerContainer')
+    footerContainer.innerHTML = ''
+    let albumPicture = song.album.cover_small
+    let albumArtist = song.artist.name
+    let songTitle = song.title
+
+
+    footerContainer.innerHTML += `<div class="col-2 me-2 p-0 d-none d-sm-block"><img src=${albumPicture} alt="avatar"
+    class="customAvatar m-3">
+    </div>
+    <div class="col-6 ms-1">
+    <small class="fw-bold text-light text-nowrap p-0 ms-3 mb-0 footerFont">${songTitle}</small>
+    <small class="text-secondary m-0 text-nowrap p-0 mb-3 ms-3 mt-0 footerFont">${albumArtist}</small>
+    </div>`
+}
+
+createFooter(newJson);
