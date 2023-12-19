@@ -88,138 +88,85 @@
                 </ul>
                 <hr class="text-white wHr m-0 mt-3 align-self-center">
                 <div class="bg-black mt-3 h-75 overflow-auto scrollbar ps-1 m-0 mb-5">
-                    <ul class="list-group ps-3">
-                        <li class="list-group-item text-secondary bg-black border-0 ps-0">Playlist creata dall'utente
-                        </li>
-                        <li class="list-group-item text-secondary bg-black border-0 ps-0">Playlist creata dall'utente
-                        </li>
-                        <li class="list-group-item text-secondary bg-black border-0 ps-0">Playlist creata dall'utente
-                        </li>
-                        <li class="list-group-item text-secondary bg-black border-0 ps-0">Playlist creata dall'utente
-                        </li>
-                        <li class="list-group-item text-secondary bg-black border-0 ps-0">Playlist creata dall'utente
-                        </li>
-                        <li class="list-group-item text-secondary bg-black border-0 ps-0">Playlist creata dall'utente
-                        </li>
-                        <li class="list-group-item text-secondary bg-black border-0 ps-0">Playlist creata dall'utente
-                        </li>
-                        <li class="list-group-item text-secondary bg-black border-0 ps-0">Playlist creata dall'utente
-                        </li>
-                        <li class="list-group-item text-secondary bg-black border-0 ps-0">Playlist creata dall'utente
-                        </li>
-                        <li class="list-group-item text-secondary bg-black border-0 ps-0">Playlist creata dall'utente
-                        </li>
-                        <li class="list-group-item text-secondary bg-black border-0 ps-0">Playlist creata dall'utente
-                        </li>
-                        <li class="list-group-item text-secondary bg-black border-0 ps-0">Playlist creata dall'utente
-                        </li>
-                        <li class="list-group-item text-secondary bg-black border-0 ps-0">Playlist creata dall'utente
-                        </li>
-                        <li class="list-group-item text-secondary bg-black border-0 ps-0">Playlist creata dall'utente
-                        </li>
-                        <li class="list-group-item text-secondary bg-black border-0 ps-0">Playlist creata dall'utente
-                        </li>
-                        <li class="list-group-item text-secondary bg-black border-0 ps-0">Playlist creata dall'utente
-                        </li>
-                        <li class="list-group-item text-secondary bg-black border-0 ps-0">Playlist creata dall'utente
-                        </li>
-                        <li class="list-group-item text-secondary bg-black border-0 ps-0">Playlist creata dall'utente
-                        </li>
-                        <li class="list-group-item text-secondary bg-black border-0 ps-0">Playlist creata dall'utente
-                        </li>
-                        <li class="list-group-item text-secondary bg-black border-0 ps-0">Playlist creata dall'utente
-                        </li>
-                        <li class="list-group-item text-secondary bg-black border-0 ps-0">Playlist creata dall'utente
-                        </li>
-                        <li class="list-group-item text-secondary bg-black border-0 ps-0">Playlist creata dall'utente
-                        </li>
-                        <li class="list-group-item text-secondary bg-black border-0 ps-0">Playlist creata dall'utente
-                        </li>
-                        <li class="list-group-item text-secondary bg-black border-0 ps-0">Playlist creata dall'utente
-                        </li>
-                        <li class="list-group-item text-secondary bg-black border-0 ps-0">Playlist creata dall'utente
-                        </li>
-                        <li class="list-group-item text-secondary bg-black border-0 ps-0">Playlist creata dall'utente
-                        </li>
-                        <li class="list-group-item text-secondary bg-black border-0 ps-0">Playlist creata dall'utente
-                        </li>
+                    <ul class="list-group ps-3" id="sidebarUl">
                     </ul>
                 </div>
             </div>
 
             <!--blocco centrale-->
             <div class="col-12 col-md-9 col-xl-7 bg-black scrollable-div overflow-scroll" style="height: 100vh">
-                <div class="mt-5 mt-md-0 ">
+                <div class="d-md-none p-4">
+                    <h1 class="d-md-none text-white">Cerca</h1>
+                </div>
 
-                    <div class="d-md-none p-4">
-                        <h1 class="d-md-none text-white">Cerca</h1>
-                    </div>
-
-                    <div class="d-flex justify-content-between align-items-center">
-                        <!--blocco freccie-->
-                        <div class="d-flex gap-2 mt-2 ms-3">
-                            <div class="d-none d-md-flex gap-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="gray"
-                                    class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
-                                    <path
-                                        d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0m3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
-                                </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="gray"
-                                    class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
-                                    <path
-                                        d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z" />
-                                </svg>
-                            </div>
-                            <!--barra di ricerca-->
-                            <div>
-                                <div class="container w-auto">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend" style="margin-right: -2%;">
-                                            <button class="btn btn-dark border-0">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                                    fill="gray" class="bi bi-search" viewBox="0 0 16 16">
-                                                    <path
-                                                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-                                                </svg>
-                                            </button>
-                                        </div>
-                                        <label for="searchQuery"></label>
-                                        <input type="text"
-                                            class="form-control bg-dark border-0 text-light rounded-right "
-                                            placeholder="Cosa vuoi ascoltare?" id="searchQuery" oninput="searchKeyword(this.value)">
+                <div class="d-flex justify-content-between align-items-center">
+                    <!--blocco breccie di mezzo-->
+                    <div class="d-flex gap-2 mt-2 ms-3">
+                        <div class="d-none d-md-flex gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="gray"
+                                class="bi bi-arrow-left-short" onclick="history.back()" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="gray"
+                                class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8" />
+                            </svg>
+                        </div>
+                        <div><!--barra di ricerca-->
+                            <div class="container w-auto">
+                                <div class="input-group">
+                                    <div class="input-group-prepend" style="margin-right: -2%;">
+                                        <button class="btn btn-dark border-0" onclick="searchKeyword()">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white"
+                                                class="bi bi-search" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                                            </svg>
+                                        </button>
                                     </div>
+                                    <input type="text" class="form-control bg-dark border-0 text-light rounded-right"
+                                        placeholder="Cosa vuoi ascoltare" id="searchQuery">
                                 </div>
                             </div>
                         </div>
-
-                        <div class="d-none d-md-flex">
-                            <div class="dropdown me-3">
-                                <button class="btn btn-secondary dropdown-toggle rounded-5 bg-dark opacity-75 mt-2"
-                                    type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="assets/img/Screenshot 2023-12-13 alle 16.43.05.png" alt="immagine avatar"
-                                        class="rounded-5" id="centralAvatar">
-                                    Giovanni Giorgio
-                                </button>
-                                <ul class="dropdown-menu bg-dark opacity-75">
-                                    <li><a class="dropdown-item text-light" href="#">Action</a></li>
-                                    <li><a class="dropdown-item text-light" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item text-light" href="#">Something else here</a></li>
-                                </ul>
-                            </div>
+                    </div>
+                    <div class="d-none d-md-flex">
+                        <div class="dropdown me-3">
+                            <button class="btn btn-secondary dropdown-toggle  rounded-5 bg-dark opacity-100 mt-2"
+                                type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="assets/img/Screenshot 2023-12-13 alle 16.43.05.png" alt="immagine avatar"
+                                    class="rounded-5" id="centralAvatar">
+                                Giovanni Giorgio
+                            </button>
+                            <ul class="dropdown-menu bg-dark opacity-75">
+                                <li><a class="dropdown-item text-light" href="#"><img src="assets/img/Screenshot 2023-12-13 alle 16.43.05.png"
+                                    alt="immagine avatar" class="rounded-5" id="centralAvatar">
+                                Giorgio Giovanni</a></li>
+                                <li><a class="dropdown-item text-light" href="#"><img src="assets/img/Screenshot 2023-12-13 alle 16.43.05.png"
+                                    alt="immagine avatar" class="rounded-5" id="centralAvatar">
+                                George</a></li>
+                                <li><a class="dropdown-item text-light" href="#"><img src="assets/img/Screenshot 2023-12-13 alle 16.43.05.png"
+                                    alt="immagine avatar" class="rounded-5" id="centralAvatar">
+                                Suo fratello</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
+                
                 <div class="mt-5 text-white mainCentralPart">
-                    <div class="containerResults row align-items-start">
-                       
+                    <div class="containerResults row align-items-start gap-1">
+
                     </div>
                     <div class="containerCards">
                         <h4 class="d-none d-md-block">SFOGLIA</h4>
                         <h4 class="d-md-none text-center">Sfoglia tutto</h4>
-                
+
                         <div class="container-fluid">
-                
+
                             <div class="row gap-3 p-2 cardContainer">
+                                <!-- dinamico -->
                             </div>
                         </div>
                     </div>
@@ -254,8 +201,8 @@
                         </div>
                     </div>
                 </div>
-                </div>
-            
+            </div>
+
             <!--colonna di dx-->
             <div class="sidebar-sx col-2 bg-black d-none d-xl-block">
                 <div class="d-flex align-items-center justify-content-end gap-4 mt-1">

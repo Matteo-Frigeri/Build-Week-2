@@ -40,7 +40,7 @@ async function init() {
 
 function populateBannerHome(track) {
   const banner = `
-    <div class="announce row d-flex align-items-center p-1 mt-2 mx-1 rounded position-relative">
+    <div class="announce row d-flex align-items-center p-1 mt-2 mx-1 rounded position-relative gap-2">
                         <div class="col-2 ms-0 me-3">
                             <img src="${track.album.cover_medium}" alt="" style="width: 150px">
                         </div>
@@ -148,3 +148,29 @@ function goToAlbumPage(id){
 function goToArtistPage(id){
   window.location.href = `artistpage.html?id=${id}`
 }
+
+
+let newString = localStorage.getItem("songAlbum")
+let artistSong = localStorage.getItem("songArtist")
+let newJson = JSON.parse(newString)
+function createFooter(song, artist){
+  let footerContainer = document.querySelector('.footerContainer')
+    footerContainer.innerHTML = ''
+    let albumPicture = song.album.cover_small
+    let albumArtist = song.artist.name
+    let songTitle = song.title
+
+
+    footerContainer.innerHTML += `<div class="col-2 me-2 p-0 d-none d-sm-block"><img src=${albumPicture} alt="avatar"
+    class="customAvatar m-3">
+    </div>
+    <div class="col-6 ms-1">
+    <small class="fw-bold text-light text-nowrap p-0 ms-3 mb-0 footerFont">${songTitle}</small>
+    <small class="text-secondary m-0 text-nowrap p-0 mb-3 ms-3 mt-0 footerFont">${albumArtist}</small>
+    </div>`
+
+    
+}
+
+createFooter(newJson);
+
