@@ -150,9 +150,10 @@ function goToArtistPage(id){
 }
 
 
-let newString = localStorage.getItem("songAlbum")
+let newString = localStorage.getItem("song")
 let artistSong = localStorage.getItem("songArtist")
 let newJson = JSON.parse(newString)
+let newArtistSong = JSON.parse(artistSong)
 function createFooter(song, artist){
   let footerContainer = document.querySelector('.footerContainer')
     footerContainer.innerHTML = ''
@@ -172,5 +173,5 @@ function createFooter(song, artist){
     
 }
 
-createFooter(newJson);
+createFooter(newJson, newArtistSong);
 
