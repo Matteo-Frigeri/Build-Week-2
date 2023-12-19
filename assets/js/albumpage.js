@@ -168,6 +168,13 @@ function populateFooter(id){
         .then((song) => {
             console.log(song)
             getFooterInfo(song)
+            saveSong(song)
         })
         .catch((err) => console.log(err));
+}
+
+function saveSong(song){
+  let stringSong = JSON.stringify(song)
+  localStorage.setItem("songAlbum", stringSong)
+
 }
